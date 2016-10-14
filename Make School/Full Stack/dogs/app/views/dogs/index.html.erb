@@ -1,0 +1,21 @@
+<h1>Dogs</h1>
+<ul>
+    <% @dogs.each do |d| %>
+        <li><%= d.name %> - <%= d.breed %> - <%= d.favorite_park %></li>
+
+    <% end %>
+</ul>
+
+<ul>
+    <% @dogs.where(breed:"Dalmation").each do |d| %>
+        <li><%= d.name %> - <%= d.breed %> - <%= d.favorite_park %></li>
+
+    <% end %>
+</ul>
+
+<ul>
+    <% @dogs.where(breed:"Beagle").each do |d| %>
+        <li><%= d.name %> - <%= d.breed %> - <%= d.favorite_park %></li>
+
+    <% end %>
+</ul>

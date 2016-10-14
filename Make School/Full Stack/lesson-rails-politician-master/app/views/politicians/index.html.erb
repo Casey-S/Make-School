@@ -1,0 +1,15 @@
+<h2>Example HTML list</h2>
+<ul>
+  <li>one</li>
+  <li>two</li>
+  <li>three</li>
+</ul>
+
+<h2>Dynamic list of Politicians using each loop</h2>
+<ul>
+  <% @politicians.each do |p| %>
+    <li>
+      <%= p.name %> - <%= p.party %>
+    </li>
+  <% end %>
+</ul>

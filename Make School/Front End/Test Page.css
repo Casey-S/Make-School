@@ -1,0 +1,24 @@
+h1 {
+  font-family: Helvetica;
+  font-size: 36px;
+  color: red;
+}
+
+body {
+    font-family: Helvetica;
+    font-size: 26px;
+    color: #bbb;
+    text-shadow: 2px 2px #000;
+}
+
+body {
+    background-image: url(http://illusion.scene360.com/wp-content/uploads/2014/09/sarawut-intarob-04.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.main {
+    background-color: rgba(255, 255, 255, 0.5);
+
+}

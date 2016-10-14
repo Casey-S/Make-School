@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+
+        <h1 id="title">???</h1>
+        <button id="button">Start</button>
+
+        <!-- JS HERE -->
+        <script src="main.js"></script>
+        <script>
+        //JS here
+        var title = document.getElementById("title");
+        var button = document.getElementById("button");
+        var isRunning = false;
+        var time = 0;
+        var timer;
+
+        button.addEventListener("click", function() {
+            if (isRunning) {
+                stopTimer()
+            } else {
+                startTimer();
+            }
+        });
+
+        function stopTimer() {
+            isRunning = false;
+            button.innerHTML = "Start";
+            timer = setInterval(function(){
+                time = 0;
+            }, 0)
+        }
+
+        function startTimer() {
+            isRunning = true;
+            button.innerHTML = "Stop";
+            timer = setInterval(function(){
+                time ++;
+                title.innerHTML = time
+            }, 100)
+        }
+
+        var title = document.getElementById("title");
+        var button = document.getElementById("button");
+
+        title.innerHTML = "0";
+
+        //button.addEventListener("click", function(event){
+        //    console.log("Button click");
+        //    setInterval(function(){
+        //        time ++;
+        //        title.innerHTML = time;
+        //    }, 1000);
+        //});
+
+        console.log("Hello World");
+
+        var score = 10000;
+        var name = "Frango";
+        var highScore = 12000;
+
+        console.log(name + " your score is: " + score);
+
+        if(score > highScore) {
+            console.log(name + " has the new high score!");
+        } else {
+            console.log("You did not beat the high score.");
+        }
+
+        console.log(2 + 2); // 4
+        console.log("2" + 2); // "22"
+        console.log("2" * 2); // 4
+
+        var y;
+
+        console.log(y); // Undefined (<- Also a testable value)
+        console.log(y * 3); // NaN - Not a Number
+        </script>
+    </body>
+<html>
