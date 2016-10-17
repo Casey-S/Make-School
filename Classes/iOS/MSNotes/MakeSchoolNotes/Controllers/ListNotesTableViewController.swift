@@ -10,17 +10,19 @@ import UIKit
 
 class ListNotesTableViewController: UITableViewController {
     
-    var notes = [Note]()
+    var notes = [Note]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        notes = CoreDataHelper.retrieveNotes()
     }
     
-    @IBAction func unwindToListNotesViewController(_ segue: UIStoryboardSegue) {
-        
-        // for now, simply defining the method is sufficient.
-        // we'll add code later
-        
+    @IBAction func unwindToListNotesViewController(_ segue: UIStoryboardSegue){
+        self.notes = CoreDataHelper.retrieveNotes()
     }
     
     // 1
@@ -42,7 +44,7 @@ class ListNotesTableViewController: UITableViewController {
         cell.noteTitleLabel.text = note.title
         
         // 4
-        cell.noteModificationTimeLabel.text = note.modificationTime.convertToString()
+        cell.noteModificationTimeLabel.text = note.modificationTime?.convertToString()
         
         return cell
     }
@@ -51,9 +53,29 @@ class ListNotesTableViewController: UITableViewController {
         if let identifier = segue.identifier {
             if identifier == "displayNote" {
                 print("Table view cell tapped")
+                
+                // 1
+                let indexPath = tableView.indexPathForSelectedRow!
+                // 2
+                let note = notes[indexPath.row]
+                // 3
+                let displayNoteViewController = segue.destination as! DisplayNoteViewController
+                // 4
+                displayNoteViewController.note = note
+                
             } else if identifier == "addNote" {
                 print("+ button tapped")
             }
+        }
+    }
+    
+    // 1
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            //1
+            CoreDataHelper.delete(note: notes[indexPath.row])
+            //2
+            notes = CoreDataHelper.retrieveNotes()
         }
     }
 }

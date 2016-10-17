@@ -42,7 +42,7 @@
                                 <connections>
                                     <outlet property="noteModificationTimeLabel" destination="XtJ-49-DM9" id="m1w-VT-sfh"/>
                                     <outlet property="noteTitleLabel" destination="xdE-zw-Z9g" id="APp-fp-0jy"/>
-                                    <segue destination="Gim-e5-K3R" kind="show" identifier="addNote" id="QqX-8I-QVv"/>
+                                    <segue destination="Gim-e5-K3R" kind="show" identifier="displayNote" id="QqX-8I-QVv"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -54,7 +54,7 @@
                     <navigationItem key="navigationItem" title="Notes" id="Awg-yH-gk8">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="NCG-ou-GUg">
                             <connections>
-                                <segue destination="Gim-e5-K3R" kind="show" id="k7i-1E-gg0"/>
+                                <segue destination="Gim-e5-K3R" kind="show" identifier="addNote" id="k7i-1E-gg0"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -101,12 +101,12 @@
                     <navigationItem key="navigationItem" title="Title" id="dnK-FM-8HZ">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="yTz-dO-JkL">
                             <connections>
-                                <segue destination="2iP-Qc-ySG" kind="unwind" identifier="Save" unwindAction="unwindToListNotesViewController:" id="y8g-4y-5Ps"/>
+                                <segue destination="2iP-Qc-ySG" kind="unwind" identifier="Cancel" unwindAction="unwindToListNotesViewController:" id="y8g-4y-5Ps"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="KTk-9c-KOE">
                             <connections>
-                                <segue destination="2iP-Qc-ySG" kind="unwind" identifier="Cancel" unwindAction="unwindToListNotesViewController:" id="V2A-hz-YCw"/>
+                                <segue destination="2iP-Qc-ySG" kind="unwind" identifier="Save" unwindAction="unwindToListNotesViewController:" id="V2A-hz-YCw"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -140,6 +140,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="QqX-8I-QVv"/>
+        <segue reference="k7i-1E-gg0"/>
     </inferredMetricsTieBreakers>
 </document>
