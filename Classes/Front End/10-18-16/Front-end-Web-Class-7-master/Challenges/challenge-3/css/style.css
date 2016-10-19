@@ -1,0 +1,19 @@
+#content {
+    width: 900px;
+    margin: auto;
+}
+
+.product {
+    width: 33.333%;
+    float: left;
+}
+
+
+
+
+
+
+
+.header {
+    text-align: center;
+}

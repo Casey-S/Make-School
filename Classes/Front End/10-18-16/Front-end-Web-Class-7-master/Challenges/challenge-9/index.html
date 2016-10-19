@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Class 7 - Challenge 9</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    
+    <div class="header">
+        <h1>Challenge 9</h1>
+        <p>Do a little something with the text. Make it look nice.</p>
+    </div>
+
+    <div id="content">
+
+    </div>
+
+    <!-- Templates -->
+    <script id="project-template" type="text/x-handlebars-template">
+        <div id="{{id}}" class="box">
+            <div class="box-a">
+                <img src="{{image}}">
+            </div>
+            <div class="box-b">
+                <p>{{desc}}</p>
+            </div>  
+            <div class="box-c">
+                <h1>{{title}}</h1>
+            </div>
+        </div>
+    </script>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="js/handlebars-v4.0.5.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

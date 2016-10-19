@@ -1,0 +1,47 @@
+#content {
+    width: 900px;
+    margin: auto;
+}
+
+.box-a {
+    width: 66.666%;
+    height: 600px;
+    background-color: antiquewhite;
+    overflow: hidden;
+}
+
+.box-a img {
+    height: 100%;
+    width: auto;
+    display: block;
+}
+
+.box-b, .box-c {
+    width: 33.333%;
+    height: 300px;
+}
+
+.box:nth-child(2n) .box-a, 
+.box:nth-child(2n) .box-b, 
+.box:nth-child(2n) .box-c
+{
+    float: left;
+}
+
+.box:nth-child(2n+1) .box-a,
+.box:nth-child(2n+1) .box-b, 
+.box:nth-child(2n+1) .box-c {
+    float: right;
+}
+
+.box-b {
+    background-color: aqua;
+}
+
+.box-c {
+    background-color: bisque;
+}
+
+.header {
+    text-align: center;
+}

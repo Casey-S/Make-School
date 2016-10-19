@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Class 7 - Challenge 11</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    
+    <div class="header">
+        <h1>Challenge 11</h1>
+        <p>Add a different background color for each cat. This should appear in one of the three cat boxes.</p>
+    </div>
+
+    <div id="content">
+
+    </div>
+
+    <!-- Templates -->
+    <script id="project-template" type="text/x-handlebars-template">
+        <div id="{{id}}" class="box">
+            <div class="box-a">
+                <img src="{{image}}">
+                <div class="breed">{{breed}}</div>
+            </div>
+            <div class="box-b">
+                <p>{{desc}}</p>
+            </div>  
+            <div class="box-c" style="background-color:{{bgColor}}">
+                <h1>{{title}}</h1>
+            </div>
+        </div>
+    </script>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="js/handlebars-v4.0.5.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

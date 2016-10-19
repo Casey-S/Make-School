@@ -1,0 +1,243 @@
+<!doctype html>
+<html>
+
+<head>
+    <title></title>
+    <!-- Page styles -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- These styles apply to the example -->
+    <style>
+        body {
+            font-family: Helvetica;
+        }
+        
+        .section {
+            margin: 50px 0;    
+        }
+        
+        .center-me {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        /* Nav bar */
+        
+        #nav-bar {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        #nav-bar li {
+            display: inline-block;
+        }
+        
+        #nav-bar a {
+            display: block;
+            padding: 0.5em;
+            text-decoration: none;
+            background-color: #eee;
+            color: #333;
+        }
+        
+        #nav-bar a:hover {
+            background-color: #666;
+            color: #fff;
+        }
+        
+        #nav-bar a.selected {
+            color: #fff;
+            background-color: #000;
+        }
+        
+        
+        /* Button Styles */
+        .button-big {
+            display: block;
+            color: #fff;
+            background-color: #000;
+            width: 120px;
+            border-radius: 4px;
+            padding: 1em;
+            text-align: center;
+            text-decoration: none;
+        }
+        
+        .button-big:hover {
+            background-color: #f0f;
+        }
+        
+        /* Modal Dialog */
+        
+        #modal {
+            left: 0;
+            top: 0;
+            background-color: rgba(0, 0, 0, 0.65);
+            width: 100%;
+            height: 100vh;
+            display: none;
+        }
+        
+        #modal > .dialog {
+            background-color: #eee;
+            border-radius: 10px;
+            text-align: center;
+            width: 400px;
+            padding: 10px;
+            left: 50%;
+            top: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+        }
+        
+        div#modal.show {
+            display: block;
+            position: absolute;
+        }
+        /* Close button */
+        
+        .close-button {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #444;
+            border: 2px solid #ccc;
+            right: -15px;
+            top: -15px;
+            cursor: pointer;
+        }
+        
+        .close-button div {
+            position: absolute;
+            width: 20px;
+            height: 2px;
+            border-radius: 1px;
+            background-color: #eee;
+        }
+        
+        .close-button div:nth-child(1) {
+            transform: translate(5px, 14px) rotate(45deg);
+        }
+        
+        .close-button div:nth-child(2) {
+            transform: translate(5px, 14px) rotate(-45deg);
+        }
+        
+        .close-button:hover {
+            background-color: #eee;
+            border-color: #444;
+        }
+        
+        .close-button:hover div {
+            background-color: #444;
+        }
+        
+        
+        /* List of data */
+        
+    </style>
+</head>
+
+<body>
+
+    <div class="section">
+        <h1>Example 1</h1>
+    </div>
+
+    <ul id="nav-bar">
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Projects</a></li>
+    </ul>
+    
+    <div class="section">
+        <div class="center-me">
+            <a id="open-modal" class="button-big" href="#">Open Modal</a>
+        </div>
+    </div>
+    
+    <div id="portfolio" class="section">
+        
+    </div>
+
+
+    <div id="modal" class="show">
+        <div class="dialog">
+            <h1>A modal</h1>
+            <p>My favorite modal dialog box!</p>
+
+            <div id="close-button" class="close-button">
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Good habit keep all of your JS at the bottom of the body -->
+    <!-- Import jQuery from CDN -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="data.js"></script>
+       
+    <script>
+        // Your JS here!
+
+        // Some jQuery tricks
+
+        // Create a nav bar 
+        // Assign a click event to all a tags in the #nav-bar.
+        $("#nav-bar a").click(function (event) {
+            // Remove .selected from all #nav-bar a tags.
+            $("#nav-bar a").removeClass("selected");
+            // Add .selected to the a tag that was clicked.
+            $(this).addClass("selected");
+        });
+
+        
+        // Show the modal
+        $("#open-modal").click(function(event){
+            $("#modal").addClass("show");
+        });
+        
+        // Hide the modal
+        $("#modal .close-button").click(function(event){
+            $("#modal").removeClass("show");
+        });
+        
+        
+        
+        // Notes
+        /*
+            
+            JS Objects and Arrays
+                What are?
+                How to define
+                Access properties and indexes
+            Looping through an array
+            Looping through properties of an object
+            Adding elements to the DOM
+                String concat
+            * Make a simple web site from data
+            Handlebars templates
+            * Revise and improve the data made site
+        */
+        
+        var content = "";
+        
+        for (var i in data) {
+             content += "<div class='box'"
+                +"style='background-color:"+data[i].bgColor+"'>"
+                +"<h1>"+data[i].title+"</h1>"
+                +"<p>"+data[i].desc+"</p>"
+                +"</div>";
+        }
+        $("#portfolio").html(content);
+    
+        
+    </script>
+</body>
+
+</html>
