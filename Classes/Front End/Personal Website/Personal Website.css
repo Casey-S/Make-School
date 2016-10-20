@@ -1,0 +1,26 @@
+h1 {
+  font-family: Helvetica;
+  font-size: 36px;
+  color: red;
+  margin: auto;
+}
+
+body {
+    font-family: Helvetica;
+    font-size: 26px;
+    color: #fff;
+    text-shadow: 2px 2px #000;
+}
+
+body {
+    background-image: url(http://i.imgur.com/uwd8Nxd.png);
+    background-position: center;
+    background-size: 207px 207px;
+    /*background-repeat: no-repeat;*/
+    background-attachment: fixed;
+}
+
+.main {
+    background-color: rgba(255, 255, 255, 0.5);
+
+}
