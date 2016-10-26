@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+    <head>
+        <title></title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+        <link rel="stylesheet" href="simple-grid.css">
+        <style>
+            body {
+                font-family: Helvetica;
+            }
+            
+            h1 {
+                text-align: center;
+            }
+            
+            .main > div > div {
+                background-color: #ddd;
+                border: solid 4px #888;
+                border-radius: 20px;
+                color: #fff;
+                margin: 10px;
+            }
+            
+            .grid {
+                width: 80%;
+            }
+            
+            
+            /* Media query for mobile devices */
+            @media only screen and (max-width: 414px) {
+                body {
+                    background-color: red;
+                }
+                
+                .col-100-mobile {
+                    width: 100%;
+                }
+                
+                .col-50-mobile {
+                    width: 50%;
+                }
+                
+                .grid {
+                    width: 100%;
+                }
+            }
+            
+            
+        </style>
+    </head>
+    <body>
+        
+        <div class="grid main">
+            <div class="col-100 ">
+               <div>
+                   <h1>A</h1>
+               </div>
+            </div>
+            
+            <div class="col-33 col-50-mobile">
+                <div>
+                    <h1>B</h1>
+                </div>
+            </div>
+            <div class="col-33 col-50-mobile">
+                <div>
+                    <h1>C</h1>
+                </div>
+            </div>
+            <div class="col-33 col-50-mobile">
+                <div>
+                    <h1>D</h1>
+                </div>
+            </div>
+            
+            <div class="col-33 col-50-mobile">
+                <div>
+                    <h1>E</h1>
+                </div>
+            </div>
+            <div class="col-33 col-50-mobile">
+                <div>
+                    <h1>F</h1>
+                </div>
+            </div>
+            <div class="col-33 col-50-mobile">
+                <div>
+                    <h1>G</h1>
+                </div>
+            </div>
+            
+            <div class="col-100">
+                <div>
+                    <h1>H</h1>
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>

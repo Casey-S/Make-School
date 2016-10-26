@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  BuzzBill
 //
-//  Created by MacBook Pro  on 10/18/16.
-//  Copyright © 2016 Casey Spencer. All rights reserved.
+//  Created by fnord on 10/18/16.
+//  Copyright © 2016 twof. All rights reserved.
 //
 
 import UIKit

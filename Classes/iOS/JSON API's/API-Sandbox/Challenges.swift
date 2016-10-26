@@ -75,7 +75,7 @@ internal func exerciseTwo() {
     
     // Uncomment this print statement when you are ready to check your code!
     
-//    print("The top movie is \(topMovie.name) by \(topMovie.rightsOwner). It costs $\(topMovie.price) and was released on \(topMovie.releaseDate). You can view it on iTunes here: \(topMovie.link)")
+    print("The top movie is \(topMovie.name) by \(topMovie.rightsOwner). It costs $\(topMovie.price) and was released on \(topMovie.releaseDate). You can view it on iTunes here: \(topMovie.link)")
 }
 
 internal func exerciseThree() {
