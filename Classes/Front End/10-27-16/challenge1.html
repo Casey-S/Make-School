@@ -1,0 +1,34 @@
+
+<style>
+    div {
+        height: calc(100% / 12);
+        background-color: black;
+        margin: 1px;
+    }
+</style>
+
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+    /*
+        Use each() to loop through all elements in the collection.
+        Provide each() with a function which will be run on each
+        of the elements.
+    */
+    $("div").click(function(){
+        $(this).css({backgroundColor:"blue"}).siblings().css({backgroundColor:"red"});
+    });
+</script>

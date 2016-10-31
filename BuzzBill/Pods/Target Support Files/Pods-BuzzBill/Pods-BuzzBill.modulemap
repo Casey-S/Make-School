@@ -1,0 +1,6 @@
+framework module Pods_BuzzBill {
+  umbrella header "Pods-BuzzBill-umbrella.h"
+
+  export *
+  module * { export * }
+}

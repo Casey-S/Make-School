@@ -10,8 +10,11 @@ import UIKit
 
 class SummaryView: UIViewController {
 
+    @IBOutlet weak var billSummary: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         // Do any additional setup after loading the view.
     }
