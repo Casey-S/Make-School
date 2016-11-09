@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "D4522F3C2D1A690C5E54D2A979D84A8BAE9F09B8",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "4CB1A6B8B9880496B67BB1246F9025BF1258ACE3" : 9223372036854775807,
+    "D4522F3C2D1A690C5E54D2A979D84A8BAE9F09B8" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "71DD4E5D-B64B-49E9-9B7D-CDBD88117956",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "4CB1A6B8B9880496B67BB1246F9025BF1258ACE3" : "..\/..\/..\/..",
+    "D4522F3C2D1A690C5E54D2A979D84A8BAE9F09B8" : "iOS-MVC\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "enums",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "1102-w\/enums.playground",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Casey-S\/Make-School.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4CB1A6B8B9880496B67BB1246F9025BF1258ACE3"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/MakeSchool-18\/iOS-MVC.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D4522F3C2D1A690C5E54D2A979D84A8BAE9F09B8"
+    }
+  ]
+}
