@@ -60,10 +60,19 @@ def hello_world():
             # turn off LED on arduino
             a.digital_write(LED_PIN,0)
 
+        # if we press the normal button
+        elif request.form['submit'] == 'Normal Mode':
+            print 'Normal'
+
+        # if we press the emergency button
+        elif request.form['submit'] == 'Emergency Mode':
+            print 'Emergency'
+            
         else:
             pass
 
     # read in analog value from photoresistor
+    time.sleep(1)
     readval = a.analog_read(ANALOG_PIN)
 
     # the default page to display will be our template with our template variables

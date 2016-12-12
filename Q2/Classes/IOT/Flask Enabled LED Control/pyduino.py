@@ -8,7 +8,7 @@ class Arduino():
     Models an Arduino connection
     """
 
-    def __init__(self, serial_port='/dev/tty.usbmodem1451', baud_rate=9600,
+    def __init__(self, serial_port='/dev/tty.usbmodem14111', baud_rate=9600,
             read_timeout=5):
         """
         Initializes the serial connection to the Arduino board
@@ -72,6 +72,20 @@ class Arduino():
         """
         command = (''.join(('WA', str(pin_number), ':',
             str(analog_value)))).encode()
+        self.conn.write(command)
+
+    def normal(self):
+        """
+        Send normal mode command
+        """
+        command = (''.join(('ND', str(0)))).encode()
+        self.conn.write(command)
+
+    def emergency(self):
+        """
+        Send emergency mode command
+        """
+        command = (''.join(('ED', str(0)))).encode()
         self.conn.write(command)
 
     def close(self):
