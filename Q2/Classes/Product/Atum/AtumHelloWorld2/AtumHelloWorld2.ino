@@ -87,8 +87,7 @@ int microsec = 1;
 
 void loop() {
 
- int red, green, blue;
-
+  int red, green, blue;
   Serial.println("loop");
   
   // uncomment for voltage controlled speed
@@ -107,42 +106,18 @@ void loop() {
     Serial.println(" )");
     colorSensor.clearInterrupt();
 
-   colorWipe(red, green, blue, microsec);
+  colorWipe(red, green, blue, microsec);
 }
 
-void setColourRgb(unsigned int red, unsigned int green, unsigned int blue) {
-   for (int i=0; i < leds.numPixels(); i++)
-   {
-    leds.setPixel(i, red, green, blue);
-   }
-    leds.show();
-  }
-  
-void colorWipe(int red, int green, int blue, int wait)
-{ 
-   unsigned int rgbColour[3];
-   
-  rgbColour[0] = red;
-  rgbColour[1] = green;
-  rgbColour[2] = blue;
 
+void colorWipe(int red, int green, int blue, int wait)
+{
 
   for (int i=0; i < leds.numPixels(); i++)
   {
     leds.setPixel(i, red, green, blue);
   }
   leds.show();
-  
-  for (int decColour = 0; decColour < 3; decColour += 1) {
-   int incColour = decColour == 2 ? 0 : decColour + 1;
-
-   // cross-fade the two colours.
-   for(int i = 0; i < 255; i += 1) {
-     setColourRgb(rgbColour[0], rgbColour[1], rgbColour[2]);
-     rgbColour[decColour] -= 1;
-     rgbColour[incColour] += 1;
-   }
- }
-
+  //delayMicroseconds(wait);
 }
 
