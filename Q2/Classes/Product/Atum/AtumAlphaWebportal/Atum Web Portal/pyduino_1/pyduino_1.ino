@@ -9,16 +9,13 @@
  * - WA6:125 -> Writes 125 to analog output pin 6 (PWM)
  */
 
-double startTime;
-double lastTime = 0;
-
 char operation; // Holds operation (R, W, ...)
 char mode; // Holds the mode (D, A)
 int pin_number; // Holds the pin number
 int digital_value; // Holds the digital value
 int analog_value; // Holds the analog value
 int value_to_write; // Holds the value that we want to write
-int wait_for_transmission = 25; // Delay in ms in order to receive the serial data
+int wait_for_transmission = 5; // Delay in ms in order to receive the serial data
 
 void set_pin_mode(int pin_number, char mode){
     /*
@@ -87,17 +84,10 @@ void analog_write(int pin_number, int analog_value){
 void setup() {
     Serial.begin(9600); // Serial Port at 9600 baud
     Serial.setTimeout(100); // Instead of the default 1000ms, in order
-                            // to speed up the Serial.parseInt()
-    lightSetup ();
+                            // to speed up the Serial.parseInt() 
 }
-
-int lightMode = 0;  // 0 = normal, 1 = emergency
 
 void loop() {
-  lightController ();
-}
-
-void controlLoop() {
     // Check if characters available in the buffer
     if (Serial.available() > 0) {
         operation = Serial.read();
@@ -113,9 +103,9 @@ void controlLoop() {
                     digital_read(pin_number);
                 } else if (mode == 'A'){ // Analog read
                     analog_read(pin_number);
-                } else {
-                  break; // Unexpected mode
-                }
+        } else {
+          break; // Unexpected mode
+        }
                 break;
 
             case 'W': // Write operation, e.g. WD3:1, WA8:255
@@ -128,70 +118,12 @@ void controlLoop() {
                 }
                 break;
 
-            case 'N': // Normal Mode
-                lightMode = 0;                
-                break;
-
-            case 'E': // Emergency Mode
-                lightMode = 1;              
-                break;
-
             case 'M': // Pin mode, e.g. MI3, MO3, MP3
                 set_pin_mode(pin_number, mode); // Mode contains I, O or P (INPUT, OUTPUT or PULLUP_INPUT)
                 break;
-                
-             default: // Unexpected char
+
+            default: // Unexpected char
                 break;
         }
     }
 }
-
-void lightSetup(){
-    pinMode(4,OUTPUT);
-    pinMode(2,INPUT);
-    pinMode(6,OUTPUT);
-    pinMode(10,OUTPUT);
-}
-
-void lightController () {
-    controlLoop();
-        
-    if (lightMode == 0)
-    {
-        digitalWrite(10,0);
-        
-        digitalWrite(4,1);
-        lastTime = millis()/1000.0;
-        startTime = lastTime;
-        while(!(((lastTime) > ((startTime) + (5))) || (((1)==(digitalRead(2))))))
-        {
-            controlLoop();
-            lastTime = millis()/1000.0;
-        }
-        digitalWrite(4,0);
-        digitalWrite(6,1);
-        
-        _delay(2);
-        
-        digitalWrite(6,0);
-        digitalWrite(10,1);
-        
-        _delay(8);
-
-        digitalWrite(10,0);
-    } else
-    {
-        digitalWrite(4,0);
-        digitalWrite(6,0);
-        digitalWrite(10,1);
-    }
-}
-
-void _delay (float seconds) {
-    long endTime = millis() + seconds * 1000;
-    while(millis() < endTime) {
-        controlLoop();
-    }
-}
-
-
