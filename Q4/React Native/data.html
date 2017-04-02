@@ -1,0 +1,84 @@
+<script src="data.js"></script>
+<script>
+    // This imports an array of user objects. Take a look at them in the console.
+    console.log(users);
+
+    var today = new Date();
+    var date = new Date(1473818524);
+
+    console.log(typeof today);
+
+    console.log(today);
+    console.log(date);
+    console.log(today.getFullYear());
+    console.log(date.getYear());
+    console.log(today.getDay());
+    console.log(today.getDate());
+    console.log(today.getMonth());
+
+
+
+    /*
+        The each user object has properties of:
+
+        - age (Number)
+        - date (String UTC timestamp)
+        - first_name (String)
+        - last_name (String)
+        - gender (String: Male or Female)
+        - id (Number)
+    */
+
+    // Challenges
+
+    // - Filter
+    // All users above age 30
+
+    function aboveAge30() {
+        var userList = users.filter(function(users) {
+            return users.age > 30;
+        })
+    console.log(userList);
+    }
+
+    aboveAge30();
+
+    // All male users between 18 and 30
+
+    function male18to30() {
+        var userList = users.filter(function(users) {
+            return users.age < 30 && users.age > 18 && users.gender === "Male";
+        })
+    console.log(userList);
+    }
+
+    male18to30();
+
+    // All female users who joined after 2016 (all dates 2017)
+
+    function femaleAfter2016() {
+        var userList = users.filter(function(users) {
+            var joinYear = new Date(users.date * 1000)
+            return users.gender === "Female" && joinYear.getFullYear() > 2016;
+        })
+    console.log(userList);
+    }
+
+    femaleAfter2016();
+
+    // Imagine the date is a birthday. Find all the users who's birthday is today.
+
+    // - Map
+    // Display user Name first and last
+    // Display first name and date formatted: mm/dd/yy
+    // Display male users as: First, Last, gender, age
+    // Display users whos birthday is today as: Happy Birthday firstName lastName
+
+    // Reduce
+    // Average the age of all users
+
+    // Extra Challenges
+    // Sort all users by gender
+    // Sort all users by age
+
+</script>

@@ -1,0 +1,48 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+<script type="text/babel">
+const colors = [
+    {"colors":["Pink","Violet","Purple","Purple","Mauv"]},
+    {"colors":["Maroon","Turquoise","Khaki","Maroon","Puce"]},
+    {"colors":["Yellow","Red","Orange","Khaki","Red"]},
+    {"colors":["Puce","Turquoise","Red","Orange","Goldenrod"]},
+    {"colors":["Yellow","Orange","Fuscia","Turquoise","Violet"]},
+    {"colors":["Mauv","Fuscia","Orange","Maroon","Fuscia"]},
+    {"colors":["Orange","Fuscia","Yellow","Purple","Khaki"]},
+    {"colors":["Indigo","Turquoise","Puce","Indigo","Goldenrod"]},
+    {"colors":["Yellow","Red","Puce","Turquoise","Green"]},
+    {"colors":["Fuscia","Blue","Teal","Purple","Yellow"]},
+    {"colors":["Yellow","Red","Violet","Goldenrod","Orange"]},
+    {"colors":["Fuscia","Red","Puce","Fuscia","Crimson"]},
+    {"colors":["Maroon","Mauv","Yellow","Khaki","Mauv"]},
+    {"colors":["Indigo","Puce","Blue","Aquamarine","Fuscia"]},
+    {"colors":["Mauv","Red","Fuscia","Green","Crimson"]},
+    {"colors":["Indigo","Fuscia","Goldenrod","Violet","Crimson"]},
+    {"colors":["Maroon","Mauv","Aquamarine","Teal","Blue"]},
+    {"colors":["Aquamarine","Indigo","Turquoise","Khaki","Red"]},
+    {"colors":["Blue","Orange","Green","Aquamarine","Khaki"]},
+    {"colors":["Pink","Green","Goldenrod","Purple","Indigo"]}
+];
+
+
+    // Challenge 1
+    // Create a master array that contains all of the colors from all of the color arrays.
+    // Duplicates are ok.
+
+    const colorArray = [...colors];
+
+    console.log(colorArray);
+
+
+    // Challenge 2
+    // Create an array of colors from the colors above that contains only one instance of
+    // each color.
+
+    const colorArray2 = [{...colors}];
+
+    console.log(colorArray2);
+
+    // Challenge 3
+    // From the array above create an object with properties named for each color with a
+    // value equal to the number of times the color appears in all of the arrays above.
+
+</script>

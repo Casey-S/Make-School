@@ -9,7 +9,7 @@
  * - WA6:125 -> Writes 125 to analog output pin 6 (PWM)
  */
 
- #include <OctoWS2811.h>
+#include <OctoWS2811.h>
 #include <Wire.h>
 //#include <math.h>
 #include <GroveColorSensor.h>
