@@ -33,131 +33,6 @@ DigoleSerialDisp mydisp(8,9,10,11);  //SPI:Pin 8: data, 9:clock, 10: SS, 11:SI. 
 
 #include <GroveColorSensor.h>
 
-void readTouchScreen(void);
-int x,y;
-
-/*
-void setup() {
-  Serial.begin(115200);
-  delay (2000);
-  
-  mydisp.begin();
-  mydisp.setBgColor(0x0); //set another back ground color
-  mydisp.setColor(0xFF); //set fore ground color, 8bit format, for 24bit color format, use:setTrueColor(R,G,B)
-  mydisp.clearScreen();
-  mydisp.setColor(0xFF);
-
-//  mydisp.print("Clear screen,\nNext Line.\r-Return-\n\rNew Line...");
-    mydisp.setPrintPos(0,40,1);
-    mydisp.print("Color Sensor RGB Values");
-
-//  mydisp.setColor(0B11111100);  //256 color format RRRGGGBB
-//  mydisp.setTrueColor(63,63,0);  //262K color format Red, Green, Blue 0~63    
-  mydisp.drawStr(7,10,"Touch Screen Test");
-  mydisp.setColor(0xFF);
-//  delay(20);
-}
-*/
-/*
-void loop()
-{
-//  mydisp.readTouchScreen(&x, &y);
-  mydisp.readTouchScreen();
-
-    x=mydisp.read1();
-    x<<=8;
-    x+=mydisp.read1();
-    y=mydisp.read1();
-    y<<=8;
-    y+=mydisp.read1();
-    
-  if (y < 500) {  
-#ifdef _PRINT_
-    Serial.print("Touch X,Y = ");
-    Serial.print(x, DEC);
-    Serial.print(" ");
-    Serial.print(y, DEC);
-    Serial.println(" ");
-#endif
-
-    mydisp.setColor(0x0);
-    mydisp.drawBox(0, 0, 60, 16); 
-
-    mydisp.setColor(0xFF);
-    mydisp.setPrintPos(0,16,1);
-    mydisp.print(x);
-    mydisp.print(',');
-    mydisp.print(y);
-  }
-  
-  if ((x < 240) || (y < 400) ) {
-    mydisp.drawPixel(x,y);
-  }
-  
-  if ((x < 50) && (y < 50) ) {
-    mydisp.clearScreen();
-  }
-  
-  Color();
-
-  /////////////////////////////
-
-    //keep the mqtt up and running
-  if (awsWSclient.connected ()) {
-      digitalWrite(LED_BUILTIN, HIGH);
-      client->yield(3000);
-      digitalWrite(LED_BUILTIN, LOW);
-      if (digitalRead(4) == HIGH)
-        sendmessage();
-  } else {
-    //handle reconnection
-    if (connect ()){
-      //subscribe ();      
-    }
-  }
-}
-*/
-
-/*void Color(void) //color values saved as ints; "red", "green", "blue"
-{
-  uint8_t closestColor;
-  int red, green, blue;
-  GroveColorSensor colorSensor;
-  colorSensor.ledStatus = 1;  // When turn on the color sensor LED, ledStatus = 1; When turn off the color sensor LED, ledStatus = 0.
-
-  colorSensor.readRGB(&red, &green, &blue);   //Read RGB values to variables.
-//    delay(300);
-#ifdef _PRINT_
-  Serial.print("RGB = ");
-  Serial.print(red,DEC);
-  Serial.print(", ");
-  Serial.print(green,DEC);
-  Serial.print(", ");
-  Serial.println(blue,DEC);
-#endif
-
-//  closestColor = (red & 0xE0) | ((green >> 3) & 0x1C) | ((blue >> 6) & 0x03);
-  mydisp.setColor(closestColor);
-  
-  mydisp.setTrueColor(red >> 2, green >> 2, blue >> 2);  //262K color format Red, Green, Blue 0~63    
-  mydisp.drawBox(0, 40, 80, 80); 
-  
-  mydisp.setColor(0xFF);
-  mydisp.setPrintPos(0,60,1);
-  mydisp.print(red);
-  mydisp.print(',');
-  mydisp.print(green);
-  mydisp.print(',');
-  mydisp.print(blue);
-
-  colorSensor.clearInterrupt();
-
-}*/
-
-
-//////////////////////////////////////////////////////////////////
-
-
 #include <Arduino.h>
 #include <Stream.h>
 #include <stdlib.h>
@@ -180,12 +55,13 @@ void loop()
 #include <Countdown.h>
 #include <MQTTClient.h>
 
-
-
 //AWS MQTT Websocket
 #include "Client.h"
 #include "AWSWebSocketClient.h"
 #include "CircularByteBuffer.h"
+
+void readTouchScreen(void);
+int x,y;
 
 //AWS IOT config, change these:
 char wifi_ssid[]       = "shanroute";
@@ -431,8 +307,6 @@ void loop()
   }
   
   //Color();
-
-  /////////////////////////////
 
     //keep the mqtt up and running.
   if (awsWSclient.connected ()) {
